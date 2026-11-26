@@ -1,26 +1,33 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Cores e fontes do site. Uso: bg-azul, text-tinta, border-borda, font-serif... */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-linho: #ece5d8;
+  --color-painel: #f6f2ea;
+  --color-tinta: #2b241f;
+  --color-azul: #1f3556;
+  --color-latao: #e3b872;
+  --color-madeira: #8a5a22;
+  --color-borda: #d9cdb8;
+  --color-contorno: #b9ab94;
+  --color-mudo: #4d4337;
+  --color-apagado: #6f6354;
+  --color-foto: #c4b69d;
+
+  --font-serif: var(--font-young), Georgia, serif;
+  --font-sans: var(--font-dm), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: var(--color-linho);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  button:not(:disabled) { cursor: pointer; }
+  /* contorno visível para quem navega pelo teclado */
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+    outline: 3px solid var(--color-azul);
+    outline-offset: 2px;
+  }
 }
